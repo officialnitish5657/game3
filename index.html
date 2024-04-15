@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .main {
+            width: 98%;
+            height: 98%;
+            box-shadow: 2px 2px 23px 2px black;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        nav {
+            padding: 0 14px;
+            width: 100%;
+            box-sizing: border-box;
+            height: 10vh;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding:25px 20px 0px 20px 
+        }
+
+        .setting ,.exit {
+            
+            font-size: xx-large;
+            background-color:#dadada9a;
+            border: 1px solid #5c5c5cbb;
+            height: 27px;
+            width: 27px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius:14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+       
+        .container {
+            width: 100%;
+            /* border: 1px solid rebeccapurple; */
+            height: 88%;
+            display: flex;
+            margin-top:30%;
+            /* justify-content: center; */
+            align-items: center;
+            box-sizing: border-box;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .game-con {
+            box-sizing: border-box;
+            border: 2px solid #6161619c;
+            width: 240px;
+            height: 250px;
+            border-radius: 20px;
+            display: grid;
+            grid-template-columns: 60px 60px 60px;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+
+        }
+
+        .box {
+            box-sizing: border-box;
+            border-radius: 9px;
+            box-shadow: 0px 0px 2px 3px rgb(224, 224, 224);
+            border: 2px solid rgb(168, 161, 161);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            font-size: xx-large;
+            align-items: center;
+            font-family: cursive;
+            font-weight: 100;
+
+        }
+
+        .line {
+            height: 1px;
+            width: 1px;
+            border-radius: 12px;
+            position: absolute;
+            background-color: black;
+        }
+
+        #line1 {
+            bottom: -5px;
+            right: -5px;
+            width: 150%;
+            transition: all 3s linear;
+            animation: line1 3s linear;
+            transform: rotate(45deg);
+            transform-origin: bottom right;
+
+        }
+
+        #line5 {
+            bottom: -5px;
+            left: -5px;
+            width: 150%;
+            transform: rotate(-45deg);
+            transform-origin: bottom left;
+        }
+
+        #line2 {
+
+            bottom: -15px;
+            right: 25px;
+            width: 114%;
+            transform: rotate(90deg);
+            transform-origin: bottom right;
+
+        }
+
+        #line3 {
+            bottom: -15px;
+            right: 90px;
+            width: 114%;
+            transform: rotate(90deg);
+            transform-origin: bottom right;
+        }
+
+        #line4 {
+            bottom: -15px;
+            left: 27px;
+            width: 114%;
+            transform: rotate(-90deg);
+            transform-origin: bottom left;
+        }
+
+        #line6 {
+            left: -15px;
+            bottom: 25px;
+            width: 114%;
+        }
+
+        #line7 {
+            left: -15px;
+            bottom: 90px;
+            width: 114%;
+
+        }
+
+        #line8 {
+            top: 25px;
+            width: 114%;
+            left: -15px;
+        }
+
+        .result {
+            box-sizing: border-box;
+            width: 85%;
+            height: 75%;
+            border-radius: 10px;
+            position: absolute;
+            left: 15px;
+            top: 25px;
+            background-color: #dadadada;
+            overflow: hidden;
+            border: 2.5px solid rgba(182, 179, 179, 0.854);
+
+
+        }
+
+        .result-con {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .result h1 {
+            padding: 1vh 0;
+            display: flex;
+            justify-content: center;
+            font-size: 40px;
+            text-transform: capitalize;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 900;
+            text-decoration: underline;
+
+
+        }
+
+        .result h2 {
+            position: absolute;
+            left: 15%;
+            top: 25%;
+            padding: 15px 0;
+            font-size: 35px;
+            text-transform: capitalize;
+            font-family: cursive;
+            font-weight: 900;
+
+
+        }
+
+        .result h3 {
+            padding: 7px 0;
+            position: absolute;
+            top: 40%;
+            left: 37%;
+            text-transform: capitalize;
+            font-family: cursive;
+            font-weight: 900;
+
+
+        }
+
+        .icon {
+            position: absolute;
+            width: 100%;
+            height: 40%;
+            top: 60%;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .button {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            border: 1px solid rgba(148, 142, 142, 0.742);
+            background-color: #c4c3c3dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hint {
+            position: relative;
+            display: flex;
+            gap: 90px;
+            border: 2px solid rgba(146, 143, 143, 0.766);
+            justify-content: center;
+            align-items: center;
+            width: 190px;
+            border-radius: 12px;
+            height: 25px;
+            padding-top: 10px;
+            font-size: 18px;
+            text-transform: capitalize;
+            font-family: cursive;
+            font-weight: 900;
+        }
+
+        .hint .x,
+        .hint .o {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .player {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 3px;
+            left: 0;
+            /* border:1px solid green; */
+            font-size: 11px;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            gap: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <nav>
+            <div class="exit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                  </svg>
+            </div>
+            <div class="setting">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+                  </svg>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="hint">
+                <div class="player">
+                    <h5>player 1</h5>
+                    <h5>player 2</h5>
+                </div>
+                <div class="x">O</div>
+                <div class="o">X</div>
+            </div>
+            <div class="game-con">
+
+                <div id="1" class="box"></div>
+                <div id="2" class="box"></div>
+                <div id="3" class="box"></div>
+                <div id="4" class="box"></div>
+                <div id="5" class="box"></div>
+                <div id="6" class="box"></div>
+                <div id="7" class="box"></div>
+                <div id="8" class="box"></div>
+                <div id="9" class="box"></div>
+                <div class="result">
+                    <div class="result-con">
+                        <h1>result</h1>
+                        <h2>o</h2>
+                        <h3>is win.</h3>
+                        <div class="icon">
+                            <div class="setting-icon button"></div>
+                            <div class="restart-icon button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
+                                <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
+                              </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- script -->
+    <script>
+
+        let j = 0;
+        let isdrow = 0;
+        // let drow = 0;
+        start()
+        function start() {
+            let box = document.querySelectorAll(".box");
+            let istrue = false;
+            let check = 0;
+            for (let i = 0; i < box.length; i++) {
+                box[i].addEventListener("click", function () {
+                    // drow = drow + 1;
+                    console.log("y,", this.id)
+                    if (box[Number(this.id) - 1].innerHTML === '') {
+                        if (istrue) {
+                            istrue = false;
+                            check = check + 1;
+                            box[Number(this.id) - 1].innerHTML = "X";
+                        }
+                        else {
+                            istrue = true;
+                            check = check + 1;
+                            box[Number(this.id) - 1].innerHTML = "0";
+                        }
+                        // console.log(check);
+                        if (check >= 5) {
+                            checkwin();
+                        }
+                        if (isdrow === 5) {
+                            console.log("x", isdrow)
+                            result(0, "drow");
+                        }
+                    }
+
+                })
+
+            }
+        }
+        function checkwin() {
+            let box = document.querySelectorAll(".box");
+            // 0
+            if (box[j].innerHTML === '0' && box[j + 1].innerHTML === '0' && box[j + 2].innerHTML === '0')
+                result(1, '0');
+            else if (box[j + 3].innerHTML === '0' && box[j + 4].innerHTML === '0' && box[j + 5].innerHTML === '0')
+                result(2, '0');
+            else if (box[j + 6].innerHTML === '0' && box[j + 7].innerHTML === '0' && box[j + 8].innerHTML === '0')
+                result(3, '0');
+            else if (box[j].innerHTML === '0' && box[j + 3].innerHTML === '0' && box[j + 6].innerHTML === '0')
+                result(4, '0');
+            else if (box[j + 1].innerHTML === '0' && box[j + 4].innerHTML === '0' && box[j + 7].innerHTML === '0')
+                result(5, '0');
+            else if (box[j + 2].innerHTML === '0' && box[j + 5].innerHTML === '0' && box[j + 8].innerHTML === '0')
+                result(6, '0');
+            else if (box[j + 2].innerHTML === '0' && box[j + 4].innerHTML === '0' && box[j + 6].innerHTML === '0')
+                result(7, '0');
+            else if (box[j].innerHTML === '0' && box[j + 4].innerHTML === '0' && box[j + 8].innerHTML === '0')
+                result(8, '0');
+            // x
+            else if (box[j].innerHTML === 'X' && box[j + 1].innerHTML === 'X' && box[j + 2].innerHTML === 'X')
+                result(1, 'X');
+            else if (box[j + 3].innerHTML === 'X' && box[j + 4].innerHTML === 'X' && box[j + 5].innerHTML === 'X')
+                result(2, 'X');
+            else if (box[j + 6].innerHTML === 'X' && box[j + 7].innerHTML === 'X' && box[j + 8].innerHTML === 'X')
+                result(3, 'X');
+            else if (box[j].innerHTML === 'X' && box[j + 3].innerHTML === 'X' && box[j + 6].innerHTML === 'X')
+                result(4, 'X');
+            else if (box[j + 1].innerHTML === 'X' && box[j + 4].innerHTML === 'X' && box[j + 7].innerHTML === 'X')
+                result(5, 'X');
+            else if (box[j + 2].innerHTML === 'X' && box[j + 5].innerHTML === 'X' && box[j + 8].innerHTML === 'X')
+                result(6, 'X');
+            else if (box[j + 2].innerHTML === 'X' && box[j + 4].innerHTML === 'X' && box[j + 6].innerHTML === 'X')
+                result(7, 'X');
+            else if (box[j].innerHTML === 'X' && box[j + 4].innerHTML === 'X' && box[j + 8].innerHTML === 'X')
+                result(8, 'X');
+            else {
+                isdrow = isdrow + 1;
+                console.log("y", isdrow)
+            }
+
+
+        }
+        function result(n, win) {
+            let box = document.querySelectorAll(".box");
+            if (n !== 0) {
+                document.querySelector(".game-con").innerHTML += `<div class="result">
+                    <div class="result-con">
+                        <h1>result</h1>
+                        <h2>${win}</h2>
+                        <h3>is win.</h3>
+                        <div class="icon">
+                            <div class="setting-icon button">2</div>
+                            <div class="restart-icon button">0</div>
+                        </div>
+                    </div>
+                </div>`;
+            }
+            else {
+                document.querySelector(".game-con").innerHTML += `<div class="result">
+                    <div class="result-con">
+                        <h1>result</h1>
+                        <h2>${win}</h2>
+                        <div class="icon">
+                            <div class="setting-icon button">2</div>
+                            <div class="restart-icon button">0</div>
+                        </div>
+                    </div>
+                </div>`;
+            }
+            document.querySelector(".restart-icon").addEventListener("click", function () {
+                console.log("h")
+                for (let i = 0; i < box.length; i++) {
+                    box[i].innerHTML = "";
+                }
+                document.querySelector(".game-con").innerHTML = `<div id="1" class="box"></div>
+                <div id="2" class="box"></div>
+                <div id="3" class="box"></div>
+                <div id="4" class="box"></div>
+                <div id="5" class="box"></div>
+                <div id="6" class="box"></div>
+                <div id="7" class="box"></div>
+                <div id="8" class="box"></div>
+                <div id="9" class="box"></div>`;
+
+                // console.log(box[0].innerHTML)
+                drow = 0;
+                isdrow = 0
+                start();
+
+            })
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
