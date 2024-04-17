@@ -5,17 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Jersey+10+Charted&family=Montserrat:ital@0;1&display=swap" rel="stylesheet">
     <style>
-        /* @import url('https://fonts.googleapis.com/css2?family=Rubik:ital@0;1&display=swap'); */
 
         * {
             margin: 0px;
             padding: 0px;
-            font-family: "Rubik", sans-serif;
+            /* font-family: "Rubik", sans-serif; */
             /* font-optical-sizing: auto; */
-            font-weight: 400;
-            font-style: normal
+            /* font-weight: 400; */
+            /* font-style: normal */
+			font-family: "Montserrat", sans-serif;
+		  font-optical-sizing: auto;
+		  font-weight: 400;
+          /* color:white */
         }
 
         body {
@@ -24,17 +29,32 @@
             display: flex;
             justify-content: center;
             align-items: center;
+			background-color: black;
+			/* box-shadow: 2px 2px 2px 2px #e0e0e0;; */
 
         }
 
         .main {
+			background-image:url("bgimg1.jpeg");
+			background-size:cover;
+			/* opacity:0.8; */
+			/* background-position:center center; */
             width: 98%;
             height: 98%;
             box-shadow: 2px 2px 23px 2px black;
             border-radius: 15px;
             overflow: hidden;
+			background-color: white;
+            position: relative;
+            ;
         }
-
+        .bgimg{
+            position: absolute;
+            width:100%;
+            height:100%;
+            background-color:black;
+            opacity: 0.3;
+        }
         nav {
             padding: 0 14px;
             width: 100%;
@@ -49,6 +69,7 @@
             gap: 210px;
             padding: 25px 20px 0px 20px;
             position: reletive;
+			
         }
 
         .setting,
@@ -66,6 +87,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+			background-color: white;
         }
 
 
@@ -84,7 +107,7 @@
 
         .game-con {
             box-sizing: border-box;
-            border: 2px solid #6161619c;
+            /* border: 2px solid #dadadada; */
             width: 300px;
             height: 300px;
             border-radius: 20px;
@@ -92,7 +115,7 @@
             grid-template-columns: 80px 80px 80px;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 23px;
             position: relative;
 
         }
@@ -100,8 +123,8 @@
         .box {
             box-sizing: border-box;
             border-radius: 9px;
-            box-shadow: 0px 0px 2px 3px rgb(224, 224, 224);
-            border: 2px solid rgb(168, 161, 161);
+            box-shadow: 0px 0px 2px 3px #dadadada;
+            border: 2px solid blcak;
             width: 80px;
             height: 80px;
             display: flex;
@@ -109,6 +132,7 @@
             font-size: 50px;
             align-items: center;
             /* font-family: cursive; */
+			/* color:white; */
             font-weight: 100;
 
         }
@@ -214,21 +238,23 @@
             font-size: 40px;
             text-transform: capitalize;
             /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
-            font-weight: 900;
+            font-weight: 600;
             text-decoration: underline;
+			/* font-family: "Jersey 10 Charted", sans-serif;
+			  font-weight: 400; */
 
 
         }
 
         .result h2 {
             position: absolute;
-            left: 17%;
-            top: 24%;
+            left:22%;
+            top: 28%;
             padding: 15px 0;
             font-size: 45px;
             text-transform: capitalize;
             /* font-family: cursive; */
-            font-weight: 900;
+            font-weight: 500;
 
 
         }
@@ -237,10 +263,10 @@
             padding: 7px 0;
             position: absolute;
             top: 40%;
-            left: 37%;
+            left: 39%;
             text-transform: capitalize;
             /* font-family: cursive; */
-            font-weight: 900;
+            font-weight: 700;
 
 
         }
@@ -254,16 +280,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 45px;
+            gap: 50px;
         }
 
         .button {
             width: 45px;
             height: 45px;
             border-radius: 12px;
-
             border: 1px solid rgba(148, 142, 142, 0.742);
-            background-color: #c4c3c3dc;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -273,12 +297,14 @@
             position: relative;
             display: flex;
             gap: 130px;
-            border: 2px solid rgba(146, 143, 143, 0.766);
+			background-color: #ffffff32;
+            border: 1px solid ##ffffff61;
+			/* box-shadow: 2px 2px 2px 2px #ffffff61; */
             justify-content: center;
             align-items: center;
             width: 255px;
             border-radius: 12px;
-            height: 30px;
+            height: 35px;
             padding-top: 10px;
             font-size: 18px;
             text-transform: capitalize;
@@ -291,7 +317,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 21px;
+            font-size: 23px;
         }
 
         .player {
@@ -301,7 +327,7 @@
             top: 3px;
             left: 0;
             /* border:1px solid green; */
-            font-size: 12px;
+            font-size: 15px;
             display: flex;
             justify-content: center;
             align-items: start;
@@ -309,28 +335,32 @@
         }
 
         .front {
-            width: 250px;
-            height: 100px;
-            border: 2px solid;
+			background-color:transparent;
+            width: 300px;
+            height: 80px;
+            border: 2px solid #dadadada;
             border-radius: 9px;
             position: absolute;
             top: 30%;
-            left: 18%;
+            left: 13%;
             z-index: 15;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            box-shadow: 2px 1px 12px white;
+            color:black;
         }
 
         .front h1 {
             text-transform: capitalize;
-
+			font-family: "Jersey 10 Charted", sans-serif;
         }
 
         .front h2 {
             text-transform: capitalize;
-
+			font-family: "Jersey 10 Charted", sans-serif;
+			/* border-radius:20px; */
         }
 
         .navbtn {
@@ -342,6 +372,7 @@
 
 <body>
     <div class="main">
+        <div class="bgimg"></div>
         <div class="front frontarea">
             <h1>tic tac toe</h1>
             <h2>let's play</h2>
